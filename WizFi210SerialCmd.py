@@ -55,12 +55,11 @@ SSID     = "WiznetKaizen"
 PASSWORD = "qazxswedc"
 
 SRC_IP      = "192.168.201.21"
-SRC_ADDR    = "\x00\x08\xDC\x19\xFA\x8B"
+SRC_ADDR    = "\x00\x08\xDC\x00\x00\x00"
 DEST_IP     = "192.168.201.6"
-DEST_ADDR   = "\x50\xE5\x49\x4C\xB2\x0B"
+DEST_ADDR   = "\x50\xE5\x49\x00\x00\x00"
 SRC_PORT    = 5000
 DEST_PORT   = 5000
-
 
 
 def make_ipv4_header(srcip, dstip, datal, srcprt, dstprt):
@@ -118,7 +117,7 @@ if __name__ == '__main__':
     #packet = DEST_ADDR + SRC_ADDR + "\x08\x00" +  ip + tcp + payload
 
     packet = DEST_ADDR + SRC_ADDR + "\x08\x00"
-    packet += make_udp_packet((SRC_IP,SRC_PORT),(DEST_IP,DEST_PORT),"Hi WizFi250")
+    packet += make_udp_packet((SRC_IP,SRC_PORT),(DEST_IP,DEST_PORT),"Hi WizFi210")
 
     strlen = len(packet)
     cmd_str = "\x1BR:" + str(strlen) + ":" + packet
